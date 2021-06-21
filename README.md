@@ -82,7 +82,35 @@ if(state == 0){
 
 ![unity ](https://user-images.githubusercontent.com/62869017/122768881-fdf1ff80-d2de-11eb-8ea9-f85d17b2a3a4.png)
 
+unity의 player 설정에서 Api Compatibility Level을 .Net 4.x로 한다.
 
+```cs
+using System.IO.Ports;
+
+public class serialports : MonoBehaviour
+{
+    SerialPort m_SerialPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+    
+    private void Update()
+    {
+        try
+        {
+            if (m_SerialPort.IsOpen)
+            {
+                m_Data = m_SerialPort.ReadLine();
+                m_SerialPort.ReadTimeout = 30;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+}
+```
+사용할 스크립트 상단에 IO포트를 적어준다.
+반드시 Arduino IDE에서 포트를 확인 후 동일하게 맞춰줘야하며 통신 속도 역시 동일해야한다.
+또한 Arduino에서 시리얼 모니터를 켤 시 유니티에서는 에러가 뜨기에 확인을 하고 싶다면 아두이노의 시리얼 모니터를 종료해야한다.
 
 
 
