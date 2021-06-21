@@ -435,66 +435,7 @@ public class serialports : MonoBehaviour
                         y = 0;
 
                     }
-                    else if (x == 11)
-                    {
-                        sp = 12;
-                        y = 0;
-
-                    }
-                    else if (x == 12)
-                    {
-                        sp = 12;
-                        y = 0;
-
-                    }
-                    else if (x ==13)
-                    {
-                      
-                        sp = 15;
-                        y = 0;
-                    }
-                    else if (x == 14)
-                    {
-                       
-                        sp = 15;
-                        y = 0;
-                    }
-                    else if (x == 15)
-                    {
-                       
-                        sp = 15;
-                        y = 0;
-                    }
-                    else if (x == 16)
-                    {
-                      
-                        sp = 15;
-                        y = 0;
-                    }
-                    else if (x == 17)
-                    {
-                       
-                        sp = 18;
-                        y = 0;
-                    }
-                    else if (x == 18)
-                    {
-                      
-                        sp = 18;
-                        y = 0;
-                    }
-                    else if (x == 19)
-                    {
-                      
-                        sp = 20;
-                        y = 0;
-                    }
-                    else if (x >= 20)
-                    {
-                        x = 20;
-                        sp = 20;
-                        y = 0;
-                    }
+                 
                  
                 }
 
@@ -607,113 +548,7 @@ public class serialports : MonoBehaviour
                         }
 
                     }
-                    else if (x == 11)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 9;
-
-                            x = 4;
-                            y = 0;
-                        }
-
-                    }
-                    else if (x == 12)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 9;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-
-
-
-                    else if (x == 13)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 12;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-
-                    else if (x == 14)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 12;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-
-                    else if (x == 15)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 12;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-
-                    else if (x == 16)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 12;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-                    else if (x == 17)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 15;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-                    else if (x == 18)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 15;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-                    else if (x == 19)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 15;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
-                    else if (x == 20)
-                    {
-                        if (y == 80)
-                        {
-                            sp = 15;
-                            x = 5;
-                            y = 0;
-                        }
-
-                    }
+                 
 
 
                 }
@@ -846,6 +681,13 @@ public class serialports : MonoBehaviour
 
 경기장은 경쟁을 하여 먼저 들어오는것이 목표이기 때문에 Waypoint를 생성하여 센서 값이 들어오면
 자동으로 경기장을 주행하도록 하였다.
+
+![Start](https://user-images.githubusercontent.com/62869017/122774467-2b8d7780-d2e4-11eb-9088-1374a6eca492.png)
+Player가 준비되면 3 2 1 카운트 후 시작하게 된다.
+
+![Panel](https://user-images.githubusercontent.com/62869017/122774644-5677cb80-d2e4-11eb-9cba-aa4245440cde.png)
+
+지정된 바퀴 수를 돌게 되면 판넬이 나오며 경기장을 빠져나가게 된다.
 
 ![player](https://user-images.githubusercontent.com/62869017/122773945-be79e200-d2e3-11eb-9585-f52775a38e84.png)
 
@@ -1038,55 +880,7 @@ public class run : MonoBehaviour
 
                         y = 0;
                     }
-                    else if (x == 11)
-                    {
-                        movementSpeed = 3f;
-
-                        y = 0;
-
-                    }
-                    else if (x == 12)
-                    {
-                        movementSpeed = 4f;
-
-                        y = 0;
-
-                    }
-                    else if (x == 13)
-                    {
-                        movementSpeed = 4f;
-
-                        y = 0;
-
-                    }
-                    else if (x == 14)
-                    {
-                        movementSpeed = 4f;
-
-                        y = 0;
-
-                    }
-                    else if (x == 15)
-                    {
-                        movementSpeed = 5;
-
-                        y = 0;
-
-                    }
-                    else if (x == 16)
-                    {
-                        movementSpeed = 5;
-
-                        y = 0;
-
-                    }
-                    else if (x > 16)
-                    {
-                        x = 16;
-
-                        y = 0;
-
-                    }
+                
                 }
 
                 if (a == 1)
@@ -1219,84 +1013,7 @@ public class run : MonoBehaviour
                         }
 
                     }
-                    else if (x == 11)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 2f;
-
-                            x = 4;
-                            y = 0;
-
-                        }
-
-                    }
-                    else if (x == 12)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 3f;
-
-
-                            x = 5;
-                            y = 0;
-
-                        }
-
-                    }
-                    else if (x == 13)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 3f;
-
-
-                            x = 5;
-                            y = 0;
-
-                        }
-
-                    }
-                    else if (x == 14)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 3f;
-
-
-                            x = 5;
-                            y = 0;
-
-                        }
-
-                    }
-                    else if (x == 15)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 3f;
-
-
-                            x = 5;
-                            y = 0;
-
-                        }
-
-                    }
-                    else if (x == 16)
-                    {
-                        if (y == 80)
-                        {
-                            movementSpeed = 3f;
-
-
-                            x = 5;
-                            y = 0;
-
-                        }
-
-                    }
-
+                 
                 }
 
 
