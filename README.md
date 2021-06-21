@@ -74,7 +74,7 @@ if(state == 0){
 ```
 <hr/>   
 >### 1-3 Unity에서 Arduino를 시리얼포트로 받는 방법
->![image](https://user-images.githubusercontent.com/62869017/122768881-fdf1ff80-d2de-11eb-8ea9-f85d17b2a3a4.png)
+![image](https://user-images.githubusercontent.com/62869017/122768881-fdf1ff80-d2de-11eb-8ea9-f85d17b2a3a4.png)
 
 
 
