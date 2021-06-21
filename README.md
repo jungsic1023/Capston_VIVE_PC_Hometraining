@@ -11,6 +11,7 @@
 <hr/>   
 
 ## 1. 아두이노 시리얼 연결
+
 ### 1-1 Arduino로 사용하는 센서
 1. 자이로 가속도 센서 -> 자전거의 방향제어(좌 우)
 2. 홀 센서 -> 자전거의 브레이크 제어
@@ -112,8 +113,15 @@ public class serialports : MonoBehaviour
 반드시 Arduino IDE에서 포트를 확인 후 동일하게 맞춰줘야하며 통신 속도 역시 동일해야한다.
 또한 Arduino에서 시리얼 모니터를 켤 시 유니티에서는 에러가 뜨기에 확인을 하고 싶다면 아두이노의 시리얼 모니터를 종료해야한다.
 
+<hr/>   
 
+## 2. Vive 연결
+Vive를 연결하기 위해선 Unity의 Asset Store에서 Steam VR을 추가하여야한다.
+추가 후 Unity의 Hierarchy에 Steam VR의 Camera Rig와 SteamVR 프리팹을 추가하여야 한다.
 
+![Steam VR](https://user-images.githubusercontent.com/62869017/122770997-f92e4b00-d2e0-11eb-8717-088ed282aed9.png)
+
+<hr/>  
 
 
 
