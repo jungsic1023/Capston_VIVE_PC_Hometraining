@@ -8,12 +8,12 @@
 <hr/>   
 
 ## 1. 아두이노 시리얼 연결
->### 1-1 Arduino로 사용하는 센서
+### 1-1 Arduino로 사용하는 센서
 1. 자이로 가속도 센서 -> 자전거의 방향제어(좌 우)
 2. 홀 센서 -> 자전거의 브레이크 제어
 3. 적외선 센서 -> 자전거의 속도제어
 <hr/>   
->### 1-2 Arduino IDE에서 Uno보드에 센서들을 연결하여 Unity로 전송하는 코드
+### 1-2 Arduino IDE에서 Uno보드에 센서들을 연결하여 Unity로 전송하는 코드
 
 ```cs
 #include "SoftwareSerial.h"
@@ -73,10 +73,9 @@ if(state == 0){
 }
 ```
 <hr/>   
->### 1-3 Unity에서 Arduino를 시리얼포트로 받는 방법
+### 1-3 Unity에서 Arduino를 시리얼포트로 받는 방법
 
-
-![image](https://user-images.githubusercontent.com/62869017/122768881-fdf1ff80-d2de-11eb-8ea9-f85d17b2a3a4.png)
+![unity ](https://user-images.githubusercontent.com/62869017/122768881-fdf1ff80-d2de-11eb-8ea9-f85d17b2a3a4.png)
 
 
 
