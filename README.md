@@ -5,6 +5,9 @@
 >#### 1-2 Arduino IDE에서 Uno보드에 센서들을 연결하여 Unity로 전송하는 코드
 >#### 1-3 Unity에서 Arduino를 시리얼포트로 받는 방법
 ### 2. Vive Unity 연결
+>#### 2-1 Unity 연결 및 시작
+>#### 2-2 컨트롤러 레이저 및 
+>#### 2-3 Unity에서 Arduino를 시리얼포트로 받는 방법
 ### 3. Unity 개발 
 
 
@@ -116,10 +119,162 @@ public class serialports : MonoBehaviour
 <hr/>   
 
 ## 2. Vive 연결
+
+### 2-1 Unity 연결 및 시작
 Vive를 연결하기 위해선 Unity의 Asset Store에서 Steam VR을 추가하여야한다.
 추가 후 Unity의 Hierarchy에 Steam VR의 Camera Rig와 SteamVR 프리팹을 추가하여야 한다.
 
 ![Steam VR](https://user-images.githubusercontent.com/62869017/122770997-f92e4b00-d2e0-11eb-8717-088ed282aed9.png)
+
+### 2-2 컨트롤러에 레이저를 부착하여 버튼을 클릭하는 방법
+
+![image](https://user-images.githubusercontent.com/62869017/122771455-68a43a80-d2e1-11eb-9b2e-66612014709e.png)
+
+컨트롤러 밑에 게임오브젝트를 두개 생성하여 pointer, sphere이라 한다.
+또한 VRinput이라는 게임오브젝트 또한 생성한다.
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Valve.VR;
+using UnityEngine.EventSystems;
+public class VRInput : BaseInputModule
+{
+    public Camera m_camera;
+   
+    public SteamVR_Input_Sources m_TargetSouce;
+    
+    public SteamVR_Action_Boolean m_click;
+   
+    private GameObject m_CurrentObject = null;
+    private PointerEventData m_Data = null;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        m_Data = new PointerEventData(eventSystem);
+    }
+
+    public override void Process()
+    {
+        m_Data.Reset();
+        m_Data.position = new Vector2(m_camera.pixelWidth / 2, m_camera.pixelHeight / 2);
+
+        eventSystem.RaycastAll(m_Data, m_RaycastResultCache);
+        m_Data.pointerCurrentRaycast = FindFirstRaycast(m_RaycastResultCache);
+        m_CurrentObject = m_Data.pointerCurrentRaycast.gameObject;
+        m_RaycastResultCache.Clear();
+
+        HandlePointerExitAndEnter(m_Data, m_CurrentObject);
+
+        if (m_click.GetStateDown(m_TargetSouce))
+            ProcessPress(m_Data);
+
+        if (m_click.GetStateUp(m_TargetSouce))
+            ProcessRelease(m_Data);
+    }
+
+    public PointerEventData GetData()
+    {
+        return m_Data;
+    }
+    private void ProcessPress(PointerEventData data)
+    {
+        data.pointerPressRaycast = data.pointerCurrentRaycast;
+
+        GameObject newPointerPress = ExecuteEvents.ExecuteHierarchy(m_CurrentObject, data, ExecuteEvents.pointerDownHandler);
+
+        if (newPointerPress == null)
+            newPointerPress = ExecuteEvents.GetEventHandler<IPointerClickHandler>(m_CurrentObject);
+
+        data.pressPosition = data.position;
+        data.pointerPress = newPointerPress;
+        data.rawPointerPress = m_CurrentObject;
+    }
+
+    private void ProcessRelease(PointerEventData data)
+    {
+        ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerUpHandler);
+
+        GameObject pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(m_CurrentObject);
+
+        if(data.pointerPress == pointerUpHandler)
+        {
+            ExecuteEvents.Execute(data.pointerPress, data, ExecuteEvents.pointerClickHandler);
+        }
+
+        eventSystem.SetSelectedGameObject(null);
+
+        data.pressPosition = Vector2.zero;
+        data.pointerPress = null;
+        data.rawPointerPress = null;
+    }
+}
+```
+VRinput 오브젝트 코드
+
+![VRinput](https://user-images.githubusercontent.com/62869017/122771665-9b4e3300-d2e1-11eb-8982-aa633a95ce7a.png)
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using Valve.VR;
+public class pointer : MonoBehaviour
+{
+    public float mlength = 5.0f;
+    public GameObject Dot;
+    public VRInput m_input;
+
+    private LineRenderer line = null;
+    private void Awake()
+    {
+        line = GetComponent<LineRenderer>();
+    }
+
+
+    // Update is called once per frame
+   private void Update()
+    {
+        UpdateLine();
+    }
+    private void UpdateLine()
+    {
+
+
+        float targetLength = mlength;
+
+        RaycastHit hit = CreateRaycast(targetLength);
+
+        Vector3 endPosittion = transform.position + (transform.forward * targetLength);
+
+        if (hit.collider != null)
+            endPosittion = hit.point;
+
+        Dot.transform.position = endPosittion;
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, endPosittion);
+
+    }
+    private RaycastHit CreateRaycast(float lenght)
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, transform.forward);
+        Physics.Raycast(ray, out hit, mlength);
+        return hit;
+    }
+}
+```
+
+pointer 코드
+
+![pointer 1](https://user-images.githubusercontent.com/62869017/122771882-cf295880-d2e1-11eb-8887-82993b0fdb4b.png)
+
+![pointer 2](https://user-images.githubusercontent.com/62869017/122771940-dd777480-d2e1-11eb-9af0-60a61dde687c.png)
+
 
 <hr/>  
 
