@@ -7,7 +7,6 @@
 ### 2. Vive Unity 연결
 >#### 2-1 Unity 연결 및 시작
 >#### 2-2 컨트롤러 레이저 및 
->#### 2-3 Unity에서 Arduino를 시리얼포트로 받는 방법
 ### 3. Unity 개발 
 
 
@@ -275,6 +274,10 @@ pointer 코드
 
 ![pointer 2](https://user-images.githubusercontent.com/62869017/122771940-dd777480-d2e1-11eb-9af0-60a61dde687c.png)
 
+
+버튼이 있는 Canvas에서는 카메라를 포인터로 지정해야한다.
+
+![Canvas](https://user-images.githubusercontent.com/62869017/122772323-3941fd80-d2e2-11eb-8dac-be73c074deb1.png)
 
 <hr/>  
 
