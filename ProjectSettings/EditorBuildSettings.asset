@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/capUI.unity
+    guid: 66ab483af01c9ac43a99d898c8af92ba
+  - enabled: 1
+    path: Assets/Scenes/cap.unity
+    guid: 83c218d46595960428a84bee8cb09986
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/cap2.unity
+    guid: 5851128634cb4fe448a302a48a7c12b8
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: a824f6931a8b1194ab77eebabe3af3ab, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6ce0c896cdd7701488de5d640ba79980, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: bb5bbae96fddeb34685a16997a115d64, type: 2}
