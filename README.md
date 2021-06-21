@@ -14,7 +14,8 @@
 3. 적외선 센서 -> 자전거의 속도제어
 <hr/>   
 >### 1-2 Arduino IDE에서 Uno보드에 센서들을 연결하여 Unity로 전송하는 코드
-~~~cs
+
+```cs
 #include "SoftwareSerial.h"
 #include "Wire.h"
 SoftwareSerial mySerial(7, 8); // RX, TX //블루투스 센서
@@ -70,5 +71,5 @@ if(state == 0){
   mySerial.println(sensorReading+" "+AcY+" "+AcX+" "+AcZ+" "+GyX+" "+GyY+" "+GyZ+" "+state);
   Serial.println(sensorReading+" "+AcY+" "+AcX+" "+AcZ+" "+GyX+" "+GyY+" "+GyZ+" "+state);
 }
-~~~
+```
 
