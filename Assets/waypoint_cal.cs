@@ -9,7 +9,7 @@ public class waypoint_cal : MonoBehaviour
     public GameObject obj;
     public float XL = 0;
     public float ZL = 0;
-    // ¿ÀºêÁ§Æ® ¹è¿­ »ı¼º
+    // ì˜¤ë¸Œì íŠ¸ì— ëŒ€í•œ ì´ˆê¸°ê°’ 
     public GameObject[] wap;
     string objectname;
     public int count = 0;
