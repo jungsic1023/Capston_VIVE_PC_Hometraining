@@ -80,7 +80,7 @@ public class run : MonoBehaviour
                 split_text = text.Split(' ');
 
                 int a = int.Parse(split_text[7]);
-                Debug.Log("¼¾¼­°ª :" + a);
+                Debug.Log("ì„¼ì„œê°’ :" + a);
 
                 //if (count == 0)
                 //{
@@ -98,7 +98,7 @@ public class run : MonoBehaviour
                 CheckDistanceToWaypoint(distance);
 
 
-                if (a == 0) //Àû¿Ü¼±¼¾¼­ a´Â 0// 
+                if (a == 0) //The IR Seonsor 'a' is 0// 
                 {
 
                     x = x + 1;
@@ -449,7 +449,7 @@ public class run : MonoBehaviour
 
 
                 int br = int.Parse(split_text[0]);
-                if (br == 1) //ºê·¹ÀÌÅ©//
+                if (br == 1) //Bycle Break//
                 {
                     movementSpeed = 0;
 
